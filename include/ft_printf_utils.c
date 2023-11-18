@@ -6,13 +6,11 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 14:01:23 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/06 11:14:05 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/17 19:16:49 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "ft_printf.h"
-
+#include "libft.h"
 
 int	print_address(unsigned long address)
 {
