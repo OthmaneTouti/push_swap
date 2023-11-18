@@ -1,0 +1,48 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/17 19:30:44 by ottouti           #+#    #+#              #
+#    Updated: 2023/11/17 20:40:43 by ottouti          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = push_swap
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I../include/
+LDFLAGS = -L../include/ -lft
+RM = rm -f
+
+FILES = push_swap utils \
+
+SRCS_DIR = ./
+SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
+
+OBJS=$(SRCS:.c=.o)
+
+all: libft $(NAME)
+
+libft:
+	$(MAKE) --silent -C ../include/
+
+$(NAME): $(OBJS)
+	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	$(RM) $(OBJS)
+	$(MAKE) -C ../include/ clean
+
+fclean: clean
+	$(RM) $(NAME)
+	$(MAKE) -C ../include/ fclean
+
+re: fclean all
+
+.PHONY: all clean fclean re libft
