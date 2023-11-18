@@ -6,7 +6,7 @@
 #    By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 19:30:44 by ottouti           #+#    #+#              #
-#    Updated: 2023/11/17 20:40:43 by ottouti          ###   ########.fr        #
+#    Updated: 2023/11/17 21:48:01 by ottouti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = push_swap
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I../include/
+DEBUGFLAGS = -g
 LDFLAGS = -L../include/ -lft
 RM = rm -f
 
@@ -35,6 +36,9 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+debug: CFLAGS += $(DEBUGFLAGS)
+debug: re
+
 clean:
 	$(RM) $(OBJS)
 	$(MAKE) -C ../include/ clean
@@ -45,4 +49,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re libft
+.PHONY: all clean fclean re debug libft

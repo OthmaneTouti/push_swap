@@ -5,9 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 19:00:51 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/17 19:03:12 by ottouti          ###   ########.fr       */
+/*   Created: 2023/11/17 21:30:57 by ottouti           #+#    #+#             */
+/*   Updated: 2023/11/17 22:28:59 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	validate_integers(int count, char **integers)
+{
+	int 	i;
+	char	*str;
+
+	i = 0;
+	while (i < count)
+	{
+		str = integers[i];
+		while (*str)
+		{
+			if (ft_isdigit((unsigned char) *str) == 0
+				|| *str == '-' || *str == '+')
+			{
+				if ((*str == '-' || *str == '+')
+					&& !ft_isdigit(*(str + 1)))
+					return (0);
+				else if (*str != '-' && *str != '+')
+					return (0);
+			}
+			str++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+// t_list create_stack(char **integers)
+// {
+	
+// }
