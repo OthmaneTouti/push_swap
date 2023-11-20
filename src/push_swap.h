@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:01:29 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/17 22:16:08 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/20 15:20:54 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # include <unistd.h>
 # include "../include/libft.h"
 
-int	main(int argc, char **argv);
-int	validate_integers(int count, char **integers);
+int		validate_integers(int count, char **integers);
+void 	create_node(char *integer, t_list **stack, int is_a);
+void	swap(t_list **stack);
+t_list	*create_stack(int count, char **integers, int is_a);
 
 #endif

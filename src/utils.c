@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 21:30:57 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/17 22:28:59 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/20 13:29:52 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	validate_integers(int count, char **integers)
 {
-	int 	i;
+	int		i;
 	char	*str;
 
 	i = 0;
@@ -38,8 +38,3 @@ int	validate_integers(int count, char **integers)
 	}
 	return (1);
 }
-
-// t_list create_stack(char **integers)
-// {
-	
-// }
