@@ -6,11 +6,36 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 21:30:57 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/21 13:55:13 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/21 14:17:31 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_duplicates(char **integers)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (integers[i])
+	{
+		j = 0;
+		while(integers[j])
+		{
+			if (i == j)
+			{
+				j++;
+				continue ;
+			}
+			if (!ft_strncmp(integers[i], integers[j], 12))
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
 
 int	check_limits(char *integer)
 {
@@ -31,8 +56,8 @@ int	check_limits(char *integer)
 		integer++;
 	}
 	if (ascii_sum > limit)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 int	validate_integers(int count, char **integers)
@@ -44,7 +69,7 @@ int	validate_integers(int count, char **integers)
 	while (i < count)
 	{
 		str = integers[i];
-		if (!check_limits(str))
+		if (check_limits(str) || check_duplicates(integers))
 			return (0);
 		while (*str)
 		{
