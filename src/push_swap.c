@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:03:44 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/21 13:24:30 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/21 13:32:42 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(int argc, char **argv)
 	t_list	*stack_b;
 
 	if (argc < 2)
-		return (0);
+		return (1);
 	if (!validate_integers(argc - 1, argv + 1))
 	{
 		ft_printf("Error\n");

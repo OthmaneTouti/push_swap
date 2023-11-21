@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:01:29 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/21 13:24:03 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/21 13:43:49 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../include/libft.h"
 
 int		validate_integers(int count, char **integers);
+int		check_limits(char *integer);
 void 	create_node(char *integer, t_list **stack);
 void	swap(t_list **stack);
 void	push_a(t_list **stack_a, t_list **stack_b);
