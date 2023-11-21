@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 21:30:57 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/20 13:29:52 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/21 13:25:08 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,11 @@ int	validate_integers(int count, char **integers)
 		i++;
 	}
 	return (1);
+}
+
+void	del(void *content)
+{
+	if (!content)
+		return ;
+	free(content);
 }
