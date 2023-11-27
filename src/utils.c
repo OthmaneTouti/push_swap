@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 21:30:57 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/21 14:17:31 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/27 13:12:39 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,20 @@ void	del(void *content)
 	if (!content)
 		return ;
 	free(content);
+}
+
+t_list	*find_max_node(t_list *stack)
+{
+	t_list	*max_node;
+	t_list	*current;
+	
+	max_node = stack;
+	current = stack;
+	while(current)
+	{
+		if (*(int *)current -> content > *(int *)max_node -> content)
+			max_node = current;
+		current = current -> next;
+	}
+	return (max_node);
 }

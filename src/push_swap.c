@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:03:44 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/21 13:32:42 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/27 13:42:02 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,34 @@ void create_node(char *integer, t_list **stack)
 	num = ft_atoi(integer);
 	new_node -> content = (int *) malloc(sizeof(int));
 	if (!new_node -> content)
+	{
+		free(new_node);
 		return ;
-	*(new_node -> content) = num;
+	}
+	*((int *)new_node->content) = num;
 	new_node -> next = NULL;
 	ft_lstadd_back(stack, new_node);
 }
 
-t_list	*create_stack(int count, char **integers)
+t_list	*create_stack(int count, char **integers, int is_str)
 {
 	int		i;
 	t_list	*stack;
 	
-	stack = NULL;
 	i = 0;
+	if (is_str)
+	{
+		count = 0;
+		while(integers[i])
+		{
+			count++;
+			i++;
+		}
+		i = 0;
+	}
+	if (!validate_integers(count, integers))
+		return (NULL);
+	stack = NULL;
 	while (i < count)
 	{
 		create_node(integers[i], &stack);
@@ -45,33 +60,17 @@ t_list	*create_stack(int count, char **integers)
 	return (stack);
 }
 
-int	main(int argc, char **argv)
+void	sort(t_list **stack_a, t_list **stack_b, t_list **insts)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
+	int	count;
 
-	if (argc < 2)
-		return (1);
-	if (!validate_integers(argc - 1, argv + 1))
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
-	stack_a = create_stack(argc - 1, argv + 1);
-	stack_b = NULL;
-	printf("Stack a:\n");
-	while (stack_a != NULL)
-	{
-		printf("%d\n", *stack_a -> content);
-		stack_a = stack_a -> next;
-	}
-	printf("Stack b:\n");
-	while (stack_b != NULL)
-	{
-		printf("%d\n", *stack_b -> content);
-		stack_b = stack_b -> next;
-	}
-	ft_lstclear(&stack_a, &del);
-	ft_lstclear(&stack_b, &del);
-	return (0);
+	if (!*stack_a || *stack_b)
+		return ;
+	count = ft_lstsize(*stack_a);
+	if (count == 1)
+		return ;
+	else if (count <= 3)
+		tiny_sort(stack_a, insts);
+	else if (count > 3)
+		insert_sort(stack_a, stack_b, insts);
 }
