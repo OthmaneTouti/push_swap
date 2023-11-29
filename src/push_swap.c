@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:03:44 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/29 15:58:55 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/29 17:15:21 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b, t_list **insts)
 	if (!*stack_a || *stack_b || *insts)
 		return ;
 	count = stksize(*stack_a);
-	if (count == 1 || is_sorted(*stack_a))
+	if (count == 1)
 		return ;
 	else if (count <= 3)
 	 	tiny_sort(stack_a, insts);
-	else if (count > 3)
-		sort(stack_a, stack_b, insts);
+	// else if (count > 3)
+	// 	sort(stack_a, stack_b, insts);
 }

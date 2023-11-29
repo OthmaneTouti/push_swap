@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:01:29 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/29 16:04:14 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/29 17:16:27 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include "../include/libft.h"
 # include <stdbool.h>
+# include <limits.h>
 
 typedef	struct s_stack
 {
@@ -35,13 +36,15 @@ int		check_duplicates(char **integers);
 int		stksize(t_stack *stack);
 int		is_sorted(t_stack *stack);
 void 	create_node(char *integer, t_stack **stack);
-//void	free_node(t_stack *stack);
 void	stkclear(t_stack **stack);
 void	push_swap(t_stack **stack_a, t_stack **stack_b, t_list **inst);
 void	write_inst(char *inst, t_list **insts);
 void	tiny_sort(t_stack **stack_a, t_list **insts);
 void	stkadd_back(t_stack **lst, t_stack *new);
 void	sort(t_stack **stack_a, t_stack **stack_b, t_list **insts);
+void	init_nodes_a(t_stack *stack_a, t_stack *stack_b);
+void	find_target(t_stack *stack_a, t_stack *stack_b);
+void	find_index(t_stack *stack);
 char	*swap_a(t_stack **stack);
 char	*swap_b(t_stack **stack);
 char	*push_a(t_stack **stack_a, t_stack **stack_b);
@@ -52,6 +55,7 @@ char	*reverse_rotate_a(t_stack **stack);
 char	*reverse_rotate_b(t_stack **stack);
 t_stack	*create_stack(int count, char **integers, int is_str);
 t_stack	*find_max_node(t_stack *stack);
+t_stack	*find_min_node(t_stack *stack);
 t_stack	*stklast(t_stack *stack);
 
 #endif

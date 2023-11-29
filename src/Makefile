@@ -6,7 +6,7 @@
 #    By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 19:30:44 by ottouti           #+#    #+#              #
-#    Updated: 2023/11/28 22:47:16 by ottouti          ###   ########.fr        #
+#    Updated: 2023/11/29 17:16:45 by ottouti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ LDFLAGS = -L../include/ -lft
 RM = rm -f
 
 FILES = push_swap utils swap_inst push_inst rotate_inst \
-		sorting main error_check stack_utils\
+		sorting main error_check stack_utils init_nodes \
+		tiny_sort node_utils \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
