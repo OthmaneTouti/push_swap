@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 13:23:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/25 14:41:44 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/27 12:24:40 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static char	**write_strings(const char *s, char c, char **split_s)
 	int		i;
 	size_t	len;
 
-	i = 0;
+	i = 1;
 	while (*s)
 	{
 		if (*s == c)
@@ -95,8 +95,10 @@ char	**ft_split(const char *s, char c)
 
 	if (!s)
 		return (0);
-	split_s = (char **) malloc((count_splits(s, c) + 1) * sizeof(char *));
+	split_s = (char **) malloc((count_splits(s, c) + 2) * sizeof(char *));
 	if (!split_s)
 		return (0);
+	split_s[0] = (char *) malloc(6 * sizeof(char));
+	split_s[0] = "(null)";
 	return (write_strings(s, c, split_s));
 }
