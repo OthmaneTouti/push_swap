@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:03:44 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/28 23:04:24 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/29 15:58:55 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,17 @@ t_stack	*create_stack(int count, char **integers, int is_str)
 	return (stack);
 }
 
-void	sort(t_stack **stack_a, t_stack **stack_b, t_list **insts)
+void	push_swap(t_stack **stack_a, t_stack **stack_b, t_list **insts)
 {
 	int	count;
 
 	if (!*stack_a || *stack_b || *insts)
 		return ;
 	count = stksize(*stack_a);
-	if (count == 1)
+	if (count == 1 || is_sorted(*stack_a))
 		return ;
-	// else if (count <= 3)
-	// 	//tiny_sort(stack_a, insts);
-	// else if (count > 3)
-	// 	//insert_sort(stack_a, stack_b, insts);
+	else if (count <= 3)
+	 	tiny_sort(stack_a, insts);
+	else if (count > 3)
+		sort(stack_a, stack_b, insts);
 }

@@ -6,27 +6,25 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 21:30:57 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/28 23:02:21 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/29 16:02:57 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	is_sorted(t_stack *stack)
+{
+	t_stack	*node;
 
-
-// void	free_node(t_stack *stack)
-// {
-// 	if (!stack)
-// 		return ;
-// 	free(stack -> nbr);
-// 	free(stack -> index);
-// 	if (stack -> cost)
-// 		free(stack ->cost);
-// 	if (stack -> above_median)
-// 		free(stack -> above_median);
-// 	if (stack -> cheapest)
-// 		free(stack -> cheapest);
-// }
+	node = stack;
+	while (node -> next)
+	{
+		if (node -> nbr > node -> next -> nbr)
+			return (0);
+		node = node -> next;
+	}
+	return (1);
+}
 
 t_stack	*find_max_node(t_stack *stack)
 {
@@ -42,4 +40,12 @@ t_stack	*find_max_node(t_stack *stack)
 		current = current -> next;
 	}
 	return (max_node);
+}
+
+void	write_inst(char *inst, t_list **insts)
+{
+	t_list	*node;
+
+	node = ft_lstnew(inst);
+	ft_lstadd_back(insts, node);
 }

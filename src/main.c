@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:06:57 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/29 15:36:18 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/29 15:42:14 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	}
 	stack_b = NULL;
 	insts = NULL;
-	//sort(&stack_a, &stack_b, &insts);
+	push_swap(&stack_a, &stack_b, &insts);
 	ft_printf("Stack a:\n");
 	while (stack_a != NULL)
 	{
