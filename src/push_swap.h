@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:01:29 by ottouti           #+#    #+#             */
-/*   Updated: 2023/11/27 13:44:07 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/11/28 22:57:38 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,43 @@
 
 # include <unistd.h>
 # include "../include/libft.h"
+# include <stdbool.h>
+
+typedef	struct s_stack
+{
+	int				nbr;
+	int				index;
+	int				cost;
+	bool			above_median;
+	bool			cheapest;
+	struct s_stack	*target_node;
+	struct s_stack	*prev;
+	struct s_stack	*next;
+}	t_stack;
+
 
 int		validate_integers(int count, char **integers);
 int		check_limits(char *integer);
 int		check_duplicates(char **integers);
-void 	create_node(char *integer, t_list **stack);
-void	del(void *content);
-void	sort(t_list **stack_a, t_list **stack_b, t_list **inst);
+int		stksize(t_stack *stack);
+void 	create_node(char *integer, t_stack **stack);
+void	free_node(t_stack *stack);
+void	stkclear(t_stack **stack);
+void	sort(t_stack **stack_a, t_stack **stack_b, t_list **inst);
 void	write_inst(char *inst, t_list **insts);
-void	tiny_sort(t_list **stack_a, t_list **insts);
-void	insert_sort(t_list **stack_a, t_list **stack_b, t_list **insts);
-char	*swap_a(t_list **stack);
-char	*swap_b(t_list **stack);
-char	*push_a(t_list **stack_a, t_list **stack_b);
-char	*push_b(t_list **stack_a, t_list **stack_b);
-char	*rotate_a(t_list **stack);
-char	*rotate_b(t_list **stack);
-char	*reverse_rotate_a(t_list **stack);
-char	*reverse_rotate_b(t_list **stack);
-t_list	*create_stack(int count, char **integers, int is_str);
-t_list	*find_max_node(t_list *stack);
+//void	tiny_sort(t_stack **stack_a, t_list **insts);
+void	stkadd_back(t_stack **lst, t_stack *new);
+//void	insert_sort(t_stack **stack_a, t_stack **stack_b, t_list **insts);
+char	*swap_a(t_stack **stack);
+char	*swap_b(t_stack **stack);
+char	*push_a(t_stack **stack_a, t_stack **stack_b);
+char	*push_b(t_stack **stack_a, t_stack **stack_b);
+char	*rotate_a(t_stack **stack);
+char	*rotate_b(t_stack **stack);
+char	*reverse_rotate_a(t_stack **stack);
+char	*reverse_rotate_b(t_stack **stack);
+t_stack	*create_stack(int count, char **integers, int is_str);
+t_stack	*find_max_node(t_stack *stack);
+t_stack	*stklast(t_stack *stack);
 
 #endif
