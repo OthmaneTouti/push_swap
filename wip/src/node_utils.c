@@ -6,12 +6,37 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:47:43 by ottouti           #+#    #+#             */
-/*   Updated: 2023/12/01 14:28:12 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/12/01 16:38:06 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*Function that creates a node for stack_a. The string from stdinput is 
+converted to an integer by the ft_atoi function and then assigned to the
+nbr value of the stack. Next is set to NULL to signify that this is the last node
+and the prev parameter is set to the current last node of the stack or NULL if this
+is the first node of the stack. Finally, the node is added to the end of the current
+stack.*/
+void create_node(char *integer, t_stack **stack)
+{
+	int		num;
+	t_stack	*new_node;
+	
+	new_node = (t_stack *) malloc(sizeof(t_stack));
+	if (!new_node)
+		return ;
+	num = ft_atoi(integer);
+	new_node -> nbr = num;
+	new_node -> next = NULL;
+	new_node -> prev = stklast(*stack);
+	stkadd_back(stack, new_node);
+}
+
+/*Function that finds index of each of the nodes in the stack. It also calculates
+the median (mid point) of the stack and assigns a true or false value to each node
+according to their index being above or below the median. This is useful to know if 
+we need to rotate or reverse_rotate the stack to get a particular node on top.*/
 void	find_index(t_stack *stack)
 {
 	int	i;
@@ -33,62 +58,12 @@ void	find_index(t_stack *stack)
 	}
 }
 
-void	find_target_a(t_stack *stack_a, t_stack *stack_b)
-{
-	t_stack	*current_b;
-	t_stack	*target;
-	long	best_match;
-
-	while (stack_a)
-	{
-		best_match = LONG_MIN;
-		current_b = stack_b;
-		while (current_b)
-		{
-			if (current_b -> nbr < stack_a -> nbr
-				&& current_b -> nbr > best_match)
-			{
-				best_match = current_b -> nbr;
-				target = current_b;
-			}
-			current_b = current_b -> next;
-		}
-		if (best_match == LONG_MIN)
-			stack_a -> target_node = find_max_node(stack_b);
-		else
-			stack_a -> target_node = target;
-		stack_a = stack_a -> next;
-	}
-}
-
-void	find_target_b(t_stack *stack_a, t_stack *stack_b)
-{
-	t_stack	*current_a;
-	t_stack	*target;
-	long	best_match;
-
-	while (stack_b)
-	{
-		best_match = LONG_MAX;
-		current_a = stack_a;
-		while (current_a)
-		{
-			if (current_a -> nbr > stack_b -> nbr
-				&& current_a -> nbr < best_match)
-			{
-				best_match = current_a -> nbr;
-				target = current_a;
-			}
-			current_a = current_a -> next;
-		}
-		if (best_match == LONG_MAX)
-			stack_b -> target_node = find_min_node(stack_a);
-		else
-			stack_b -> target_node = target;
-		stack_b = stack_b -> next;
-	}
-}
-
+/*Function that calculates the cost (number of instructions) necessary to get the 
+current node on top of stack_a and to get it's target node on top of stack_b.
+First, if the current node is above the median, the cost to bring it on top is simply
+it's index (rotating the stack until it's on top). If not, we have to reverse rotate 
+and thus the cost is the length of stack_a minus the index of the node we want on top.
+Then we add to this the cost of bringing the target node on top of stack_b, using the same logic*/
 void	find_cost(t_stack *stack_a, t_stack *stack_b)
 {
 	int	size_a;
@@ -109,6 +84,8 @@ void	find_cost(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
+/*Simple function that finds the smallest cost of all the nodes in the stack
+and sets the cheapest parameter to true in that node.*/
 void	find_cheapest(t_stack *stack)
 {
 	t_stack	*cheapest_node;

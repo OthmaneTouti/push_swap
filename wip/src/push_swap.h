@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:01:29 by ottouti           #+#    #+#             */
-/*   Updated: 2023/12/01 13:54:06 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/12/01 20:07:58 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ int		stksize(t_stack *stack);
 int		is_sorted(t_stack *stack);
 void 	create_node(char *integer, t_stack **stack);
 void	stkclear(t_stack **stack);
-void	push_swap(t_stack **stack_a, t_stack **stack_b);
-void	tiny_sort(t_stack **stack_a);
 void	stkadd_back(t_stack **lst, t_stack *new);
 void	sort(t_stack **stack_a, t_stack **stack_b);
 void	init_nodes_a(t_stack *stack_a, t_stack *stack_b);
@@ -51,8 +49,7 @@ void	find_cheapest(t_stack *stack);
 void	move_a_to_b(t_stack **stack_a, t_stack **stack_b);
 void	move_b_to_a(t_stack **stack_a, t_stack **stack_b);
 void	rotate_both(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest);
-void	rev_rotate_both(t_stack **stack_a,
-						t_stack **stack_b,
+void	rev_rotate_both(t_stack **stack_a, t_stack **stack_b,
 						t_stack *cheapest);
 void	swap_a(t_stack **stack);
 void	swap_b(t_stack **stack);

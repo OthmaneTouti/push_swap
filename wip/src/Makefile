@@ -6,7 +6,7 @@
 #    By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 19:30:44 by ottouti           #+#    #+#              #
-#    Updated: 2023/11/30 16:39:11 by ottouti          ###   ########.fr        #
+#    Updated: 2023/12/01 20:09:06 by ottouti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ DEBUGFLAGS = -g
 LDFLAGS = -L../include/ -lft -fsanitize=address
 RM = rm -f
 
-FILES = push_swap utils swap_inst push_inst rotate_inst \
-		sorting main error_check stack_utils init_nodes \
-		tiny_sort node_utils move reverse_rotate_inst \
+FILES = push_swap misc swap push rotate sorting \
+		find_target error_check stack_utils init_nodes \
+		node_utils move reverse_rotate \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
