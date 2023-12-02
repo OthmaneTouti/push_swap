@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:49:47 by ottouti           #+#    #+#             */
-/*   Updated: 2023/12/01 16:00:44 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/12/01 20:37:19 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ void	find_target_a(t_stack *stack_a, t_stack *stack_b)
 }
 
 /*Same idea as the above function. In this case we are giving nodes in stack_b
-target nodes in stack_a. To do so, find the closest bigger number in stack_a and
-set it as the target. That way, when we push the nodes back in stack_a, they will
-be pushed to the correct position. If we can't find a bigger node in stack_a, we set
-the target to the minimum value of stack_a. That way the biggest number will come before
-the minumum, and we can rotate the stack later to put the minimum back on top
-(see min_on_top function)*/
+target nodes in stack_a. To do so, find the closest bigger number in stack_a
+and set it as the target. That way, when we push the nodes back in stack_a,
+they will be pushed to the correct position. If we can't find a bigger node
+in stack_a, we set the target to the minimum value of stack_a. That way the
+biggest number will come before the minumum, and we can rotate the stack later
+to put the minimum back on top (see min_on_top function)*/
 void	find_target_b(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*current_a;

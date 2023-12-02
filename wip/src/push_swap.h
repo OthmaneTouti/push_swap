@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:01:29 by ottouti           #+#    #+#             */
-/*   Updated: 2023/12/01 20:15:51 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/12/01 20:32:03 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,16 @@
 # include <stdbool.h>
 # include <limits.h>
 
-typedef	struct s_stack
+/*Structure type for the stacks to sort.
+nbr: value of the integer
+index: position of the node in the stack
+cost: number of instructions necessary to move this node to the other stack
+above_median: tells if the node is above the mid point line of the stack
+cheapest: tells if the node has the lowest number of instructions to move
+target_node: pointer to the node in other stack where this node should go above
+prev: pointer to the previous node in this stack
+next: pointer to the next node in this stack*/
+typedef struct s_stack
 {
 	int				nbr;
 	int				index;
@@ -35,7 +44,7 @@ int		check_limits(char *integer);
 int		check_duplicates(char **integers);
 int		stksize(t_stack *stack);
 int		is_sorted(t_stack *stack);
-void 	create_node(char *integer, t_stack **stack);
+void	create_node(char *integer, t_stack **stack);
 void	stkclear(t_stack **stack);
 void	stkadd_back(t_stack **lst, t_stack *new);
 void	sort(t_stack **stack_a, t_stack **stack_b);
@@ -51,7 +60,7 @@ void	move_a_to_b(t_stack **stack_a, t_stack **stack_b);
 void	move_b_to_a(t_stack **stack_a, t_stack **stack_b);
 void	rotate_both(t_stack **stack_a, t_stack **stack_b, t_stack *cheapest);
 void	rev_rotate_both(t_stack **stack_a, t_stack **stack_b,
-						t_stack *cheapest);
+			t_stack *cheapest);
 void	swap_a(t_stack **stack);
 void	swap_b(t_stack **stack);
 void	push_a(t_stack **stack_a, t_stack **stack_b);
@@ -65,6 +74,6 @@ t_stack	*create_stack(int count, char **integers, int is_str);
 t_stack	*find_max_node(t_stack *stack);
 t_stack	*find_min_node(t_stack *stack);
 t_stack	*stklast(t_stack *stack);
-t_stack *get_cheapest(t_stack *stack);
+t_stack	*get_cheapest(t_stack *stack);
 
 #endif

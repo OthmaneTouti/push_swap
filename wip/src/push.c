@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_inst.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 12:11:40 by ottouti           #+#    #+#             */
-/*   Updated: 2023/12/01 16:41:39 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/12/01 20:34:19 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	push_a(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	first_a = *stack_a;
 	first_b = *stack_b;
-	second_b = (*stack_b) -> next;
+	second_b = (*stack_b)-> next;
 	first_b -> next = first_a;
 	if (first_a)
 		first_a -> prev = first_b;
@@ -48,7 +48,7 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	first_a = *stack_a;
 	first_b = *stack_b;
-	second_a = (*stack_a) -> next;
+	second_a = (*stack_a)-> next;
 	first_a -> next = first_b;
 	if (first_b)
 		first_b -> prev = first_a;
@@ -68,7 +68,7 @@ will rotate or reverse_rotate stack_a until the cheapest node to move
 is on top.*/
 void	prep_for_push(t_stack **stack, t_stack *top_node, char name)
 {
-	while(*stack != top_node)
+	while (*stack != top_node)
 	{
 		if (name == 'a')
 		{

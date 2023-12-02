@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:05:16 by ottouti           #+#    #+#             */
-/*   Updated: 2023/12/01 13:25:14 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/12/01 20:39:44 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	check_duplicates(char **integers)
 	while (integers[i])
 	{
 		j = 0;
-		while(integers[j])
+		while (integers[j])
 		{
 			if (i == j)
 			{
@@ -38,12 +38,13 @@ int	check_duplicates(char **integers)
 	return (0);
 }
 
-//Checks if every string in the input is within int limits by adding up the ascii values of
-//the strings and comparing with the ascii value of the limits.
+/*Checks if every string in the input is within int limits by adding up
+the ascii values of the strings and comparing with the ascii
+value of the limits.*/
 int	check_limits(char *integer)
 {
 	int	ascii_sum;
-	int limit;
+	int	limit;
 
 	ascii_sum = 0;
 	limit = 526;

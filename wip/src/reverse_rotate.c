@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate_inst.c                              :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:08:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/12/01 17:05:35 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/12/01 20:40:05 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	reverse_rotate_a(t_stack **stack, bool print)
 	last->prev->next = NULL;
 	last->next = *stack;
 	last->prev = NULL;
-	*stack = last; 
+	*stack = last;
 	last->next->prev = last;
 	if (print)
 		ft_printf("rra\n");

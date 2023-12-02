@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:44:15 by ottouti           #+#    #+#             */
-/*   Updated: 2023/12/01 20:05:49 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/12/01 20:36:33 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,20 +77,20 @@ void	stkadd_back(t_stack **stack, t_stack *new)
 }
 
 /*Function that initializes stack_a. It first checks if the parameter given
-to the program is one long string (for example "3 9 8 7 2 1") or an array of single
-characters. It then checks if there are no errors in the input. It then intializes the
-stack as NULL and calls the create_node function for every integer in the input to 
-create the necessary number of nodes.*/
+to the program is one long string (for example "3 9 8 7 2 1") or an array of
+single characters. It then checks if there are no errors in the input. It
+then intializes the stack as NULL and calls the create_node function for
+every integer in the input to create the necessary number of nodes.*/
 t_stack	*create_stack(int count, char **integers, int is_str)
 {
 	int		i;
 	t_stack	*stack;
-	
+
 	i = 0;
 	if (is_str)
 	{
 		count = 0;
-		while(integers[i])
+		while (integers[i])
 		{
 			count++;
 			i++;

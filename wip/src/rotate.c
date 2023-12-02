@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_inst.c                                      :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 12:39:44 by ottouti           #+#    #+#             */
-/*   Updated: 2023/12/01 17:06:43 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/12/01 20:33:39 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*Function that performs the rotate instruction and updates the indexes for stack_a*/
+/*Function that performs the rotate instruction and updates the indexes
+for stack_a*/
 void	rotate_a(t_stack **stack, bool print)
 {
 	t_stack	*first;
 	t_stack	*second;
 	t_stack	*last;
 
-	if (!*stack || (*stack) -> next == NULL)
+	if (!*stack || (*stack)-> next == NULL)
 		return ;
 	first = *stack;
-	second = (*stack) -> next;
+	second = (*stack)-> next;
 	last = stklast(*stack);
 	last -> next = first;
 	first -> prev = last;
@@ -34,17 +35,18 @@ void	rotate_a(t_stack **stack, bool print)
 		ft_printf("ra\n");
 }
 
-/*Function that performs the rotate instruction and updates the indexes for stack_b*/
+/*Function that performs the rotate instruction and updates the indexes for
+stack_b*/
 void	rotate_b(t_stack **stack, bool print)
 {
 	t_stack	*first;
 	t_stack	*second;
 	t_stack	*last;
 
-	if (!*stack || (*stack) -> next == NULL)
+	if (!*stack || (*stack)-> next == NULL)
 		return ;
 	first = *stack;
-	second = (*stack) -> next;
+	second = (*stack)-> next;
 	last = stklast(*stack);
 	last -> next = first;
 	first -> prev = last;

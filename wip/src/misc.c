@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 21:30:57 by ottouti           #+#    #+#             */
-/*   Updated: 2023/12/01 20:14:35 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/12/01 20:41:58 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ t_stack	*find_max_node(t_stack *stack)
 {
 	t_stack	*max_node;
 	t_stack	*current;
-	
+
 	max_node = stack;
 	current = stack;
-	while(current)
+	while (current)
 	{
 		if (current -> nbr > max_node -> nbr)
 			max_node = current;
@@ -53,7 +53,7 @@ t_stack	*find_min_node(t_stack *stack)
 
 	min_node = stack;
 	current = stack;
-	while(current)
+	while (current)
 	{
 		if (current -> nbr < min_node -> nbr)
 			min_node = current;
@@ -64,9 +64,9 @@ t_stack	*find_min_node(t_stack *stack)
 
 /*This simple function just finds the node with the lowest cost value
 and returns it.*/
-t_stack *get_cheapest(t_stack *stack)
+t_stack	*get_cheapest(t_stack *stack)
 {
-	while(stack)
+	while (stack)
 	{
 		if (stack -> cheapest)
 			break ;
