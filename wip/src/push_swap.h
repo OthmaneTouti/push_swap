@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 19:01:29 by ottouti           #+#    #+#             */
-/*   Updated: 2023/12/01 20:07:58 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/12/01 20:15:51 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void 	create_node(char *integer, t_stack **stack);
 void	stkclear(t_stack **stack);
 void	stkadd_back(t_stack **lst, t_stack *new);
 void	sort(t_stack **stack_a, t_stack **stack_b);
+void	tiny_sort(t_stack **stack_a);
 void	init_nodes_a(t_stack *stack_a, t_stack *stack_b);
 void	init_nodes_b(t_stack *stack_a, t_stack *stack_b);
 void	find_target_a(t_stack *stack_a, t_stack *stack_b);

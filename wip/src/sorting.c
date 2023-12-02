@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:22:37 by ottouti           #+#    #+#             */
-/*   Updated: 2023/12/01 20:12:41 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/12/01 20:15:38 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ is on top. If so, it rotates the stack so that the max value is last. If not,
 it checks if the max value is second, if so it reverse rotates the stack so that
 the max value is last. Finally, it checks if the first value is greater than the
 second value. If so, it swaps them.*/
-static void	tiny_sort(t_stack **stack_a)
+void	tiny_sort(t_stack **stack_a)
 {
 	t_stack	*max_node;
 	
